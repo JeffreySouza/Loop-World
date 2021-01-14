@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://DeviceChanger.gd" type="Script" id=1]
+[ext_resource path="res://Intro.ogg" type="AudioStream" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[node name="Changer" type="Control"]
+margin_top = -3.05176e-05
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 273.377, 418.602 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 507.353, 304.748 )
+scale = Vector2( 7.48923, 4.46385 )
+texture = ExtResource( 3 )
+
+[node name="OutputList" type="ItemList" parent="."]
+margin_left = 57.0
+margin_top = 33.0
+margin_right = 960.0
+margin_bottom = 228.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InputList" type="ItemList" parent="."]
+margin_left = 57.0
+margin_top = 325.963
+margin_right = 960.0
+margin_bottom = 520.963
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OutputDeviceInfo" type="Label" parent="."]
+margin_left = 103.242
+margin_top = 255.857
+margin_right = 442.242
+margin_bottom = 291.857
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InputDeviceInfo" type="Label" parent="."]
+margin_left = 125.692
+margin_top = 542.085
+margin_right = 464.692
+margin_bottom = 578.085
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SetOutputDevice" type="Button" parent="."]
+margin_left = 787.156
+margin_top = 260.345
+margin_right = 918.156
+margin_bottom = 305.345
+rect_pivot_offset = Vector2( 254.198, 234.584 )
+text = "Set Device"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayAudio" type="Button" parent="."]
+margin_left = 605.839
+margin_top = 259.631
+margin_right = 738.839
+margin_bottom = 300.631
+rect_pivot_offset = Vector2( 0, 233.053 )
+text = "Play Audio"
+
+[node name="SetInputDevice" type="Button" parent="."]
+margin_left = 793.891
+margin_top = 538.715
+margin_right = 924.891
+margin_bottom = 583.715
+rect_pivot_offset = Vector2( -1145.72, -353.585 )
+text = "Set Device"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Done" type="Button" parent="."]
+margin_left = 31.739
+margin_top = 537.593
+margin_right = 162.739
+margin_bottom = 582.593
+rect_pivot_offset = Vector2( -1145.72, -353.585 )
+text = "Done"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -6.0
+[connection signal="pressed" from="SetOutputDevice" to="." method="_on_SetOutputDevice_pressed"]
+[connection signal="button_down" from="PlayAudio" to="." method="_on_Play_Audio_button_down"]
+[connection signal="pressed" from="SetInputDevice" to="." method="_on_SetInputDevice_pressed"]
+[connection signal="pressed" from="Done" to="." method="_on_Done_pressed"]
